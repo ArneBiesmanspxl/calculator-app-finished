@@ -18,9 +18,6 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Build application
-        run: npm run build
-      
       - name: Create ZIP bundle
         run: zip -r app-bundle.zip . -x "*.git*"
       
