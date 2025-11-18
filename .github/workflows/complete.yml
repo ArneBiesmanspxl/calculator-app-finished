@@ -17,9 +17,9 @@ jobs:
       
       - name: Install dependencies
         run: npm install
+
+      - name: Run unit tests
+        run: npm test
       
       - name: Create ZIP bundle
         run: zip -r app-bundle.zip . -x "*.git*"
-      
-      - name: Verify bundle creation
-        run: ls -alh app-bundle.zip
