@@ -1,9 +1,9 @@
-name: Dependencies Example
+name: Build Example
 
 on: [push, workflow_dispatch]
 
 jobs:
-  dependencies-job:
+  build-job:
     runs-on: ubuntu-latest
     
     steps:
@@ -18,5 +18,11 @@ jobs:
       - name: Install dependencies
         run: npm install
       
-      - name: Verify directory contents
-        run: ls -alhR
+      - name: Build application
+        run: npm run build
+      
+      - name: Create ZIP bundle
+        run: zip -r app-bundle.zip . -x "*.git*"
+      
+      - name: Verify bundle creation
+        run: ls -alh app-bundle.zip
