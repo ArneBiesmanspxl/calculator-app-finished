@@ -20,6 +20,14 @@ jobs:
 
       - name: Run unit tests
         run: npm test
-      
+        
+      - name: Code Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.2.11
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Create ZIP bundle
         run: zip -r app-bundle.zip . -x "*.git*"
+
+      
+          
